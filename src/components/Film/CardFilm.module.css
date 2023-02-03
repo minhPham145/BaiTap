@@ -1,0 +1,42 @@
+.card {
+	@apply relative w-full h-full overflow-hidden;
+}
+
+/* poster */
+.card .poster {
+	@apply relative pt-[150%] bg-center bg-cover bg-no-repeat rounded-lg overflow-hidden;
+}
+
+/* button play */
+.card:hover .btn-play {
+	@apply opacity-100;
+}
+
+.card .btn-play {
+	@apply absolute z-[1] left-1/2 translate-x-[-50%] top-[55px] opacity-0 duration-500;
+}
+
+.card .btn-play span {
+	@apply text-white text-7xl leading-[0];
+}
+
+/* details */
+.card:hover .details {
+	@apply top-0;
+}
+
+.card .details {
+	@apply absolute w-full h-full top-full p-5 duration-500 bg-[linear-gradient(to_top,_rgba(0,0,0,1)_0%,_transparent)] flex;
+}
+
+.card .details h1 {
+	@apply text-gray-100 text-lg mb-2;
+}
+
+.card .details p {
+	@apply text-gray-300 text-xs mb-4 line-clamp-5;
+}
+
+.card .details button {
+	@apply text-white bg-red-500 text-lg px-4 py-2 rounded hover:bg-red-600 uppercase;
+}

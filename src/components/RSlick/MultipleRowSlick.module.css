@@ -1,0 +1,14 @@
+.btnNext,
+.btnPrev {
+	@apply flex before:content-none absolute z-[1] top-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white shadow-md hover:text-red-500;
+}
+
+.btnNext {
+	@apply -right-6;
+}
+
+.btnPrev {
+	@apply -left-6;
+}
+
+

@@ -1,19 +1,18 @@
-import axios from 'axios';
-import { DOMAIN } from '../../util/settings/config';
+import { quanLyPhimService } from '../../services/QuanLyPhimService';
+import { STATUS_CODE } from '../../util/settings/config';
 import { SET_CAROUSEL } from '../types/CarouselType';
 
 export const getCarouselAction = () => {
 	return async dispatch => {
 		try {
-			const result = await axios({
-				url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachBanner`,
-				method: 'GET',
-			});
-			console.log(result);
-			dispatch({
-				type: SET_CAROUSEL,
-				arrImg: result.data.content,
-			});
+			const { status, data } = await quanLyPhimService.layDanhSachBanner();
+			if (status === STATUS_CODE.SUCCESS) {
+				dispatch({
+					type: SET_CAROUSEL,
+					arrImg: data.content,
+				});
+			}
+			console.log(data);
 		} catch (err) {
 			console.log('err', err);
 		}
