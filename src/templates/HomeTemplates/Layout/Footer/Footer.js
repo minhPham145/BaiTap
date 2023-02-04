@@ -19,9 +19,9 @@ export default function Footer() {
 						<p className='pb-2 text-lg font-medium'>Category</p>
 						<div>
 							{_.chunk(arrHeThongRap, 3).map((row, i) => (
-								<div className='flex w-1/2 md:w-2/3 lg:w-1/2 mx-auto md:mx-0 justify-between items-center mb-4'>
+								<div key={i} className='flex w-1/2 md:w-2/3 lg:w-1/2 mx-auto md:mx-0 justify-between items-center mb-4'>
 									{row.map((htr, i) => (
-										<div>
+										<div key={i}>
 											<img className='w-[30px] h-[30px] bg-white rounded-full' src={htr.logo} alt={htr.logo} />
 										</div>
 									))}

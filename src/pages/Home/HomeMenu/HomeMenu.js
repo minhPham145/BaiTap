@@ -2,7 +2,7 @@ import { Tabs } from 'antd';
 import moment from 'moment/moment';
 import 'moment/locale/vi';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { history } from '../../../util/history';
 import poster from '../../../assets/poster.jpg';
 moment.locale('vi');
 
@@ -24,7 +24,7 @@ export default function HomeMenu(props) {
 							}}
 						/>
 						<div className='pl-4'>
-							<h3 className='p text-lg font-medium'>{film.tenPhim}</h3>
+							<h3 className='text-lg font-medium'>{film.tenPhim}</h3>
 						</div>
 					</div>
 					<div className='pt-2 '>
@@ -33,9 +33,13 @@ export default function HomeMenu(props) {
 								<div className='pb-2' key={i}>
 									<p className='text-lg capitalize'>{moment(lichChieu.ngayChieuGioChieu).format('dddd, MMMM, yyyy')}</p>
 
-									<NavLink to='/'>
-										<button className='bg-[rgba(246,246,246,.5)] rounded-md border-[1px] border-[#e4e4e4] text-[#108f3e] text-sm font-medium p-[5px] uppercase hover:text-red-500'>{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</button>
-									</NavLink>
+									<button
+										onClick={() => {
+											history.push('/');
+										}}
+										className='bg-[rgba(246,246,246,.5)] rounded-md border-[1px] border-[#e4e4e4] text-[#108f3e] text-sm font-medium p-[5px] uppercase hover:text-red-500'>
+										{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+									</button>
 								</div>
 							);
 						})}

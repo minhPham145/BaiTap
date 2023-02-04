@@ -2,6 +2,8 @@ export const DOMAIN = 'http://movieapi.cyberlearn.vn';
 export const TOKEN = 'ACCESS_TOKEN';
 export const GROUPID = 'GP00';
 
+export const USER_LOGIN = 'USER_LOGIN';
+
 export const STATUS_CODE = {
 	SUCCESS: 200,
 	BAD_REQUEST: 400,

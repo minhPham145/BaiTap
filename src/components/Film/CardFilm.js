@@ -15,7 +15,7 @@ export default function CardFilm(props) {
 					<div className='mt-auto'>
 						<h1>{film.tenPhim}</h1>
 						<p>{film.moTa}</p>
-						<NavLink to={`/detail/${film.maPhim}`}>
+						<NavLink to={`detail/${film.maPhim}`}>
 							<button>ĐẶT VÉ</button>
 						</NavLink>
 					</div>

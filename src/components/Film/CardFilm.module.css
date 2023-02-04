@@ -34,7 +34,7 @@
 }
 
 .card .details p {
-	@apply text-gray-300 text-xs mb-4 line-clamp-5;
+	@apply text-gray-300 text-xs mb-4 line-clamp-3;
 }
 
 .card .details button {
