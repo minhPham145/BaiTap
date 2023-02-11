@@ -2,7 +2,8 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { DangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import { dangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import * as Yup from 'yup';
 
 export default function Login() {
 	const dispatch = useDispatch();
@@ -12,17 +13,23 @@ export default function Login() {
 			taiKhoan: '',
 			matKhau: '',
 		},
+
+		validationSchema: Yup.object({
+			taiKhoan: Yup.string().required('vui lòng nhập tài khoản!'),
+			matKhau: Yup.string().required('vui lòng nhập mật khẩu!'),
+		}),
+
 		onSubmit: values => {
-			dispatch(DangNhapAction(values));
+			dispatch(dangNhapAction(values));
 		},
 	});
 
 	return (
-		<div className='lg:w-1/2 xl:max-w-screen-sm'>
-			<div className='py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12'>
+		<div className='w-full text-white'>
+			<div className='py-12 flex justify-center lg:justify-start lg:px-12'>
 				<div className='cursor-pointer flex items-center'>
 					<div>
-						<svg className='w-10 text-indigo-500' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 225 225' style={{ enableBackground: 'new 0 0 225 225' }} xmlSpace='preserve'>
+						<svg className='w-10 ' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 225 225' style={{ enableBackground: 'new 0 0 225 225' }} xmlSpace='preserve'>
 							<style type='text/css' dangerouslySetInnerHTML={{ __html: '\n\t\t\t\t\t.st0{fill:none;stroke:currentColor;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}\n\t\t\t\t' }} />
 							<g transform='matrix( 1, 0, 0, 1, 0,0) '>
 								<g>
@@ -31,40 +38,32 @@ export default function Login() {
 							</g>
 						</svg>
 					</div>
-					<div className='text-2xl text-indigo-800 tracking-wide ml-2 font-semibold'>MOVIE</div>
+					<div className='text-2xl tracking-wide ml-2 font-semibold'>MOVIE</div>
 				</div>
 			</div>
-			<div className='mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl'>
-				<h2
-					className='text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-              xl:text-bold'>
-					ĐĂNG NHẬP
-				</h2>
+			<div className='pb-12 px-12 md:px-24 lg:px-12 xl:px-24 xl:max-w-2xl'>
+				<h2 className='text-center text-4xl font-display font-semibold lg:text-left lg:text-4xl lg:text-bold'>ĐĂNG NHẬP</h2>
 				<div className='mt-12'>
 					<form onSubmit={formik.handleSubmit}>
 						<div>
-							<div className='text-sm font-bold text-gray-700 tracking-wide'>Tài khoản</div>
-							<input name='taiKhoan' value={formik.values.taiKhoan} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500' type='text' placeholder='Nhập vào tài khoản...' />
-							{formik.errors.taiKhoan ? <div>{formik.errors.taiKhoan}</div> : null}
+							<div className='text-sm font-bold tracking-wide'>Tài khoản</div>
+							<input name='taiKhoan' value={formik.values.taiKhoan} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full text-md p-2 bg-[#333] border-b-[2px] border-transparent focus:outline-none focus:border-indigo-600 rounded' type='text' placeholder='Nhập vào tài khoản...' />
+							{formik.touched.taiKhoan && formik.errors.taiKhoan ? <div className='text-sm text-amber-600'>{formik.errors.taiKhoan}</div> : null}
 						</div>
-						<div className='mt-8'>
-							<div className='text-sm font-bold text-gray-700 tracking-wide'>Mật khẩu</div>
-							<input name='matKhau' value={formik.values.matKhau} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500' type='password' placeholder='Nhập vào mật khẩu...' />
-							{formik.errors.matKhau ? <div>{formik.errors.matKhau}</div> : null}
+						<div className='mt-5'>
+							<div className='text-sm font-bold  tracking-wide'>Mật khẩu</div>
+							<input name='matKhau' value={formik.values.matKhau} onChange={formik.handleChange} onBlur={formik.handleBlur} className='w-full text-md p-2 bg-[#333] border-b-[2px] border-transparent focus:outline-none focus:border-indigo-600 rounded' type='password' placeholder='Nhập vào mật khẩu...' />
+							{formik.touched.matKhau && formik.errors.matKhau ? <div className='text-sm text-amber-600'>{formik.errors.matKhau}</div> : null}
 						</div>
 						<div className='mt-10'>
-							<button
-								className='bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
-                          font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
-                          shadow-lg'
-								type='submit'>
+							<button className='bg-indigo-500 text-gray-100 p-4 w-full rounded tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg' type='submit'>
 								Đăng nhập
 							</button>
 						</div>
 					</form>
-					<div className='mt-12 text-sm font-display font-semibold text-gray-700 text-center'>
-						Chưa có tài khoản ?{' '}
-						<NavLink to='/signup' className='cursor-pointer text-indigo-600 hover:text-indigo-800'>
+					<div className='mt-5 text-sm font-display font-semibold text-center'>
+						Chưa có tài khoản?{' '}
+						<NavLink to='/signup' className='cursor-pointer text-indigo-500 hover:text-indigo-800'>
 							Đăng ký
 						</NavLink>
 					</div>

@@ -17,23 +17,23 @@ export default function HomeCarousel(props) {
 
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		dispatch(getCarouselAction());
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	const renderImg = () => {
 		return arrImg.map((item, index) => {
 			return (
 				<div key={index}>
-					<div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` , position: 'relative' }}>
+					<div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})`, position: 'relative' }}>
 						<div className='absolute top-0 bottom-0 left-0 right-0'></div>
 					</div>
 				</div>
 			);
 		});
 	};
-
-	useEffect(() => {
-		dispatch(getCarouselAction());
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	return <Carousel effect='fade'>{renderImg()}</Carousel>;
 }

@@ -1,0 +1,24 @@
+.hint {
+	--hint-width: 115px;
+	--btn-width: 45px;
+}
+
+.ghe {
+	@apply bg-indigo-500 text-[#fff] w-full h-full rounded cursor-pointer align-middle;
+}
+
+.gheVip {
+	@apply bg-orange-500;
+}
+
+.gheDaDat {
+	@apply bg-red-500 cursor-no-drop;
+}
+
+.gheDangDat {
+	@apply bg-green-500;
+}
+
+.gheDaDuocDat {
+	@apply bg-[#ffffff] text-orange-500 border-orange-500 border-[1px] shadow-md;
+}

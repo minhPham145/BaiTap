@@ -12,8 +12,14 @@ moment.locale('vi');
 export default function Detail(props) {
 	const { filmDetail } = useSelector(state => state.QuanLyPhimReducer);
 
-	console.log(filmDetail);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const { id } = props.match.params;
+		dispatch(layThongTinLichChieuPhimAction(id));
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const renderCumRap = htr => {
 		return htr.cumRapChieu.map((cumRap, i) => {
@@ -29,6 +35,7 @@ export default function Detail(props) {
 					{cumRap.lichChieuPhim.map((lichChieu, i) => {
 						return (
 							<button
+								key={i}
 								onClick={() => {
 									history.push(`/checkout/${lichChieu.maLichChieu}`);
 								}}
@@ -43,7 +50,7 @@ export default function Detail(props) {
 	};
 
 	const renderHeThongRap = () => {
-		return filmDetail.heThongRapChieu?.map((htr, i) => {
+		return filmDetail.heThongRapChieu.map((htr, i) => {
 			return {
 				label: (
 					<div className='mt-4 flex items-center w-[200px]'>
@@ -110,18 +117,6 @@ export default function Detail(props) {
 			children: `Content of Tab Pane 3`,
 		},
 	];
-
-	const onTop = () => {
-		window.scrollTo(0, 0);
-	};
-
-	useEffect(() => {
-		onTop();
-		const { id } = props.match.params;
-		dispatch(layThongTinLichChieuPhimAction(id));
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	return (
 		<>

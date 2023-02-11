@@ -24,34 +24,46 @@ function SamplePrevArrow(props) {
 }
 
 export default function Contact() {
-	const [arrFilmMDB, setArrFilmMDB] = useState([]);
-
-	const getListFilmMovieDB = async () => {
-		const arrPage = [1, 2, 3, 4, 5];
-		const apiKey = '53d0e6fb19fb18a908d1069e8f71cbce';
-		const urlPath = 'https://api.themoviedb.org/3/movie/popular';
-
-		try {
-			const getListMovie = () => {
-				return arrPage.map(page => {
-					return axios({
-						url: `${urlPath}?api_key=${apiKey}&language=vi-VN&page=${page}`,
-					});
-				});
-			};
-
-			const result = await Promise.all(getListMovie());
-			const arrResutl = result.map(request => {
-				return request.data.results;
-			});
-			setArrFilmMDB(arrResutl.flat(1));
-			console.log(result);
-		} catch (err) {
-			console.log(err);
-		}
+	const settings = {
+		infinite: true,
+		centerPadding: '0',
+		slidesToShow: 4,
+		slidesToScroll: 4,
+		speed: 500,
+		rows: 2,
+		nextArrow: <SampleNextArrow />,
+		prevArrow: <SamplePrevArrow />,
 	};
 
+	const [arrFilmMDB, setArrFilmMDB] = useState([]);
+	const [currrentIndex, setCurrrentIndex] = useState(3);
+
 	useEffect(() => {
+		const getListFilmMovieDB = async () => {
+			const arrPage = [1, 2, 3, 4, 5];
+			const apiKey = '53d0e6fb19fb18a908d1069e8f71cbce';
+			const urlPath = 'https://api.themoviedb.org/3/movie/popular';
+
+			try {
+				const getListMovie = () => {
+					return arrPage.map(page => {
+						return axios({
+							url: `${urlPath}?api_key=${apiKey}&language=vi-VN&page=${page}`,
+						});
+					});
+				};
+
+				const result = await Promise.all(getListMovie());
+				const arrResutl = result.map(request => {
+					return request.data.results;
+				});
+				setArrFilmMDB(arrResutl.flat(1));
+				console.log(result);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
 		getListFilmMovieDB();
 	}, []);
 
@@ -78,29 +90,35 @@ export default function Contact() {
 		});
 	};
 
-	const settings = {
-		infinite: true,
-		centerPadding: '0',
-		slidesToShow: 4,
-		slidesToScroll: 4,
-		speed: 500,
-		rows: 2,
-		nextArrow: <SampleNextArrow />,
-		prevArrow: <SamplePrevArrow />,
+	const prevSlide = () => {
+		const isFirstSlide = currrentIndex === 0;
+		const newIndex = isFirstSlide ? arrFilmMDB.length - 1 : currrentIndex - 1;
+		setCurrrentIndex(newIndex);
+	};
+
+	const nextSlide = () => {
+		const isLastSlide = currrentIndex === arrFilmMDB.length - 1;
+		const newIndex = isLastSlide ? 0 : currrentIndex + 1;
+		setCurrrentIndex(newIndex);
 	};
 
 	return (
-		<div className='bg-[#040407]'>
+		<div className='bg-black'>
 			<div
-				className='bg-top bg-cover bg-no-repeat relative'
+				className='bg-top bg-cover bg-no-repeat relative group'
 				style={{
-					backgroundImage: `url('https://image.tmdb.org/t/p/original/${arrFilmMDB[9]?.backdrop_path}')`,
-					backgroundColor: '#040407',
+					backgroundImage: `url('https://image.tmdb.org/t/p/original/${arrFilmMDB[currrentIndex]?.backdrop_path}')`,
+					backgroundColor: 'black',
 				}}>
-				<div className='h-[62vw] w-full'></div>
-				<div className='absolute w-full h-[5vh] bottom-[0] bg-[linear-gradient(to_top,_#040407_0%,_transparent)] '></div>
-				<div className='absolute w-full h-[25vh] bottom-[-100px] bg-[#040407] blur-[19px]'></div>
-
+				<div className='h-[60vw] w-full'></div>
+				<div className='absolute w-full h-[25vh] bottom-[0] bg-[linear-gradient(to_top,_black_0%,_transparent)]'></div>
+				<div className='absolute w-full h-[15vh] bottom-[0] bg-[linear-gradient(to_top,_black_0%,_transparent)]'></div>
+				<div className='hidden absolute p-3 bg-black/50 top-1/3 translate-x-0 left-5 text-white group-hover:flex items-center justify-center' onClick={prevSlide}>
+					<LeftOutlined className='text-[2.5rem]' />
+				</div>
+				<div className='hidden absolute p-3 bg-black/50 top-1/3 translate-x-0 right-5 text-white group-hover:flex items-center justify-center' onClick={nextSlide}>
+					<RightOutlined className='text-[2.5rem]' />
+				</div>
 			</div>
 
 			<div className='w-[80vw] max-w-[940px] mx-auto pb-24'>

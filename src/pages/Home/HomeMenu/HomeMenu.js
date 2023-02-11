@@ -3,7 +3,6 @@ import moment from 'moment/moment';
 import 'moment/locale/vi';
 import React from 'react';
 import { history } from '../../../util/history';
-import poster from '../../../assets/poster.jpg';
 moment.locale('vi');
 
 export default function HomeMenu(props) {
@@ -20,7 +19,7 @@ export default function HomeMenu(props) {
 							alt={film.hinhAnh}
 							onError={e => {
 								e.currentTarget.onerror = null;
-								e.currentTarget.src = poster;
+								e.currentTarget.src = 'https://picsum.photos/50';
 							}}
 						/>
 						<div className='pl-4'>
@@ -35,7 +34,7 @@ export default function HomeMenu(props) {
 
 									<button
 										onClick={() => {
-											history.push('/');
+											history.push(`checkout/${lichChieu.maLichChieu}`);
 										}}
 										className='bg-[rgba(246,246,246,.5)] rounded-md border-[1px] border-[#e4e4e4] text-[#108f3e] text-sm font-medium p-[5px] uppercase hover:text-red-500'>
 										{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
