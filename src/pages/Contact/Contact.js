@@ -2,13 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
-import styleSlick from '../../components/RSlick/MultipleRowSlick.module.css';
 import { PlayCircleOutlined } from '@ant-design/icons';
 
 function SampleNextArrow(props) {
 	const { onClick } = props;
 	return (
-		<button type='button' onClick={onClick} className={`${styleSlick['btnNext']}`}>
+		<button type='button' onClick={onClick} className='flex before:content-none absolute z-[1] top-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white shadow-md hover:text-red-500 -right-6'>
 			<RightOutlined className='m-auto' />
 		</button>
 	);
@@ -17,7 +16,7 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
 	const { onClick } = props;
 	return (
-		<button type='button' onClick={onClick} className={`${styleSlick['btnPrev']}`}>
+		<button type='button' onClick={onClick} className='flex before:content-none absolute z-[1] top-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white shadow-md hover:text-red-500 -left-6'>
 			<LeftOutlined className='m-auto' />
 		</button>
 	);
