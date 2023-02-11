@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { GROUPID } from '../../../../util/settings/config';
 import * as Yup from 'yup';
-import { capNhatThongTinNguoiDungAdminAction, layDanhSachLoaiNguoiDungAction, layThongTinNguoiDungCapNhatAction, themNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction';
+import { capNhatThongTinNguoiDungAdminAction, layDanhSachLoaiNguoiDungAction, layThongTinNguoiDungCapNhatAction } from '../../../../redux/actions/QuanLyNguoiDungAction';
 import { history } from '../../../../util/history';
 import _ from 'lodash';
 
@@ -37,7 +37,7 @@ export default function EditUser(props) {
 		}),
 
 		onSubmit: values => {
-			console.log(values);
+			console.log('values: ', values);
 
 			dispatch(capNhatThongTinNguoiDungAdminAction(values));
 		},

@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { Button, Table } from 'antd';
 import { Input } from 'antd';
-import { SearchOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { history } from '../../../util/history';
 import { layDanhSachNguoiDungAction, xoaNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
 
@@ -23,7 +22,7 @@ export default function Users() {
 	danhSachNguoiDung.forEach((user, i) => {
 		user.id = i;
 	});
-	console.log(danhSachNguoiDung);
+	console.log('danhSachNguoiDung: ', danhSachNguoiDung);
 	const columns = [
 		{
 			title: 'STT',

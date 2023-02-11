@@ -117,7 +117,7 @@ function Checkout(props) {
 							<p className='font-medium capitalize'>{thongTinPhim.tenPhim}</p>
 							<p>{thongTinPhim.tenCumRap}</p>
 							<p className='first-letter:uppercase'>
-								{moment(new Date(thongTinPhim.ngayChieu)).format('dddd DD/MM/YYYY')} - {thongTinPhim.gioChieu} - {thongTinPhim.tenRap}
+								{thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu} - {thongTinPhim.tenRap}
 							</p>
 						</div>
 						<div className='py-3 border-b-[1px] border-dashed flex justify-between gap-[2%] text-lg relative'>
@@ -162,7 +162,7 @@ function Checkout(props) {
 function KetQuaDatVe(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log(thongTinNguoiDung);
+	console.log('thongTinNguoiDung: ', thongTinNguoiDung);
 
 	useEffect(() => {
 		dispatch(layThongTinNguoiDungAction());

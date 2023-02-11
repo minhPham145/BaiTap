@@ -35,7 +35,6 @@ const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
 			if (state.danhSachNguoiDung.length === 0) {
 				return { ...state, thongTinNguoiDungCapNhat: {} };
 			}
-
 			return { ...state, thongTinNguoiDungCapNhat: state.danhSachNguoiDung.find(user => user.taiKhoan === action.thongTinNguoiDungCapNhat) };
 
 		default:

@@ -7,7 +7,7 @@ import { TOKEN, USER_LOGIN } from '../../util/settings/config';
 import { history } from '../../util/history';
 import _ from 'lodash';
 
-const { Header, Content, Sider, Footer } = Layout;
+const { Header, Content, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
 	return { label, key, icon, children };

@@ -7,7 +7,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import 'moment/locale/vi';
 import { useFormik } from 'formik';
-import { Button, Form, Select } from 'antd';
+import { Button, Form } from 'antd';
 import * as Yup from 'yup';
 
 moment.locale('vi');
@@ -18,7 +18,7 @@ const onChange = key => {
 export default function Profile(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log(thongTinNguoiDung);
+	console.log('thongTinNguoiDung: ', thongTinNguoiDung);
 
 	useEffect(() => {
 		dispatch(layThongTinNguoiDungAction());
@@ -144,7 +144,7 @@ function ThongTinCaNhan(props) {
 function LichSuDatVe(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log(thongTinNguoiDung);
+	console.log('thongTinNguoiDung: ', thongTinNguoiDung);
 
 	useEffect(() => {
 		dispatch(layThongTinNguoiDungAction());

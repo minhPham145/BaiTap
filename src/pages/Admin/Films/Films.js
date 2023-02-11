@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { Button, Table } from 'antd';
 import { Input } from 'antd';
-import { SearchOutlined, EditOutlined, DeleteOutlined, CalendarOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/QuanLyPhimAction';
-import { NavLink } from 'react-router-dom';
 import { history } from '../../../util/history';
 
 const { Search } = Input;
@@ -14,7 +13,7 @@ export default function Films() {
 
 	const dispatch = useDispatch();
 
-	console.log(arrFilmDefault);
+	console.log('arrFilmDefault: ',arrFilmDefault);
 
 	useEffect(() => {
 		dispatch(layDanhSachPhimAction());

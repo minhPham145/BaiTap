@@ -3,13 +3,10 @@ import { Button, Form, InputNumber, Select, DatePicker } from 'antd';
 import { quanLyRapService } from '../../../services/QuanLyRapService';
 import { STATUS_CODE } from '../../../util/settings/config';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
 import dayjs from 'dayjs';
 import { quanLyDatVeService } from '../../../services/QuanLyDatVeService';
 
 export default function Showtime(props) {
-	const dispatch = useDispatch();
-
 	const formik = useFormik({
 		initialValues: {
 			maPhim: props.match.params.id,

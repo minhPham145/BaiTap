@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { DatePicker, Form, Input, InputNumber, Switch } from 'antd';
 import { useFormik } from 'formik';
-import moment from 'moment';
-
 import { useDispatch } from 'react-redux';
 import { themPhimUploadHinhAction } from '../../../../redux/actions/QuanLyPhimAction';
 import { GROUPID } from '../../../../util/settings/config';
@@ -25,7 +23,7 @@ export default function AddNew() {
 			maNhom: GROUPID,
 		},
 		onSubmit: values => {
-			console.log(values);
+			console.log('value: ', values);
 
 			//tạo đối tượng form data
 			let formData = new FormData();

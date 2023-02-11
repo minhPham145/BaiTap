@@ -33,6 +33,25 @@ export default function Contact() {
 		rows: 2,
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
+		responsive: [
+			{
+				breakpoint: 1280,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					rows: 2,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					rows: 1,
+				},
+			},
+		],
 	};
 
 	const [arrFilmMDB, setArrFilmMDB] = useState([]);
@@ -73,13 +92,13 @@ export default function Contact() {
 				<div key={i} className='p-1'>
 					<div className='relative w-full h-full overflow-hidden group'>
 						<div className='relative pt-[150%] bg-center bg-cover bg-no-repeat rounded-lg overflow-hidden' style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w780/${film.poster_path}')` }}>
-							<div className='absolute z-[1] left-1/2 translate-x-[-50%] top-[55px] opacity-0 duration-500'>
-								<PlayCircleOutlined className='text-white text-7xl leading-[0]' />
+							<div className='absolute z-[1] left-1/2 translate-x-[-50%] top-[55px] lg:top-[100px] xl:top-[55px] opacity-0 duration-500 group-hover:opacity-100'>
+								<PlayCircleOutlined className='text-white text-7xl leading-[0] hidden md:inline-block' />
 							</div>
 							<div className='absolute w-full h-full top-full p-5 bg-[linear-gradient(to_top,_rgba(0,0,0,1)_0%,_transparent)] duration-500 flex group-hover:top-0'>
 								<div className='mt-auto'>
-									<h1 className='text-gray-100 text-lg mb-2'>{film.title}</h1>
-									<p className='text-gray-300 text-xs mb-4 line-clamp-5'>{film.overview}</p>
+									<h1 className='text-gray-100 text-lg leading-5 mb-2'>{film.title}</h1>
+									<p className='text-gray-300 text-xs mb-4 line-clamp-3 lg:line-clamp-5'>{film.overview}</p>
 									<button className='text-white bg-red-500 text-lg px-4 py-2 rounded hover:bg-red-600 uppercase'>ĐẶT VÉ</button>
 								</div>
 							</div>

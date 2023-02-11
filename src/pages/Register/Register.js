@@ -1,7 +1,6 @@
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import * as Yup from 'yup';
 import { dangKyAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import { GROUPID } from '../../util/settings/config';
@@ -32,7 +31,7 @@ export default function Register() {
 		}),
 
 		onSubmit: values => {
-			console.log(values);
+			console.log('values: ', values);
 			dispatch(dangKyAction(values));
 		},
 	});

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import styleSlick from './MultipleRowSlick.module.css';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import CardFilm from '../Film/CardFilm';
 import { layDanhSachPhimDangChieu, layDanhSachPhimSapChieu } from '../../redux/actions/QuanLyPhimAction';
@@ -9,7 +8,7 @@ import { layDanhSachPhimDangChieu, layDanhSachPhimSapChieu } from '../../redux/a
 function SampleNextArrow(props) {
 	const { onClick } = props;
 	return (
-		<button type='button' onClick={onClick} className={`${styleSlick['btnNext']}`}>
+		<button type='button' onClick={onClick} className='flex before:content-none absolute z-[1] top-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white shadow-md hover:text-red-500 -right-6'>
 			<RightOutlined className='m-auto' />
 		</button>
 	);
@@ -18,7 +17,7 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
 	const { onClick } = props;
 	return (
-		<button type='button' onClick={onClick} className={`${styleSlick['btnPrev']}`}>
+		<button type='button' onClick={onClick} className='flex before:content-none absolute z-[1] top-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white shadow-md hover:text-red-500 -left-6'>
 			<LeftOutlined className='m-auto' />
 		</button>
 	);
