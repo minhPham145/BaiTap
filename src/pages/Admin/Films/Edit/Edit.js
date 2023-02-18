@@ -10,7 +10,7 @@ export default function Edit(props) {
 	const [imgSrc, setImgSrc] = useState('');
 
 	const { thongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
-	console.log('thongTinPhim: ', thongTinPhim);
+
 	const dispatch = useDispatch();
 	const { id } = props.match.params;
 	useEffect(() => {
@@ -33,8 +33,6 @@ export default function Edit(props) {
 			maNhom: GROUPID,
 		},
 		onSubmit: values => {
-			console.log('value: ', values);
-
 			//tạo đối tượng form data
 			let formData = new FormData();
 			for (let key in values) {

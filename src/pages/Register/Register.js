@@ -31,7 +31,6 @@ export default function Register() {
 		}),
 
 		onSubmit: values => {
-			console.log('values: ', values);
 			dispatch(dangKyAction(values));
 		},
 	});

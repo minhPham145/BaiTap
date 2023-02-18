@@ -22,7 +22,7 @@ export default function Users() {
 	danhSachNguoiDung.forEach((user, i) => {
 		user.id = i;
 	});
-	console.log('danhSachNguoiDung: ', danhSachNguoiDung);
+
 	const columns = [
 		{
 			title: 'STT',

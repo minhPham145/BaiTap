@@ -13,8 +13,6 @@ export default function Films() {
 
 	const dispatch = useDispatch();
 
-	console.log('arrFilmDefault: ',arrFilmDefault);
-
 	useEffect(() => {
 		dispatch(layDanhSachPhimAction());
 

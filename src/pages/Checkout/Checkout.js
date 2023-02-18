@@ -162,7 +162,6 @@ function Checkout(props) {
 function KetQuaDatVe(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log('thongTinNguoiDung: ', thongTinNguoiDung);
 
 	useEffect(() => {
 		dispatch(layThongTinNguoiDungAction());

@@ -13,9 +13,8 @@ export const layDanhSachPhongVeAction = maLichChieu => {
 					ChiTietPhongVe: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -38,16 +37,15 @@ export const datVeAction = thongTinDatVe => {
 		dispatch(displayLoadingAction());
 
 		try {
-			const { status, data } = await quanLyDatVeService.datVe(thongTinDatVe);
+			const { status } = await quanLyDatVeService.datVe(thongTinDatVe);
 			if (status === STATUS_CODE.SUCCESS) {
 				await dispatch(layDanhSachPhongVeAction(thongTinDatVe.maLichChieu));
 				await dispatch(datVeHoanTatAction());
 				await dispatch(hideLoadingAction());
 				await dispatch(chuyenTabAction('2'));
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };

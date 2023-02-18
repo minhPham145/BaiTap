@@ -1,3 +1,4 @@
+import { all } from 'axios';
 import { quanLyPhimService } from '../../services/QuanLyPhimService';
 import { history } from '../../util/history';
 import { STATUS_CODE } from '../../util/settings/config';
@@ -13,9 +14,8 @@ export const layDanhSachPhimAction = (tenPhim = '') => {
 					arrFilm: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -35,14 +35,13 @@ export const layDanhSachPhimSapChieu = () => {
 export const themPhimUploadHinhAction = formData => {
 	return async dispatch => {
 		try {
-			const { status, data } = await quanLyPhimService.themPhimUploadHinh(formData);
+			const { status } = await quanLyPhimService.themPhimUploadHinh(formData);
 
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Thêm phim thành công!');
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -50,15 +49,14 @@ export const themPhimUploadHinhAction = formData => {
 export const capNhatPhimUploadAction = formData => {
 	return async dispatch => {
 		try {
-			const { status, data } = await quanLyPhimService.capNhatPhimUpload(formData);
+			const { status } = await quanLyPhimService.capNhatPhimUpload(formData);
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Cập nhật phim thành công!');
 				dispatch(layDanhSachPhimAction());
 				history.push('/admin/films');
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -74,9 +72,8 @@ export const layThongTinPhimAction = maPhim => {
 					thongTinPhim: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -84,17 +81,14 @@ export const layThongTinPhimAction = maPhim => {
 export const xoaPhimAction = maPhim => {
 	return async dispatch => {
 		try {
-			const { status, data } = await quanLyPhimService.xoaPhim(maPhim);
+			const { status } = await quanLyPhimService.xoaPhim(maPhim);
 
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Xóa phim thành công !');
 				dispatch(layDanhSachPhimAction());
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
-
-

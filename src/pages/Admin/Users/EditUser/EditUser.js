@@ -12,8 +12,6 @@ export default function EditUser(props) {
 	const { id } = props.match.params;
 	const dispatch = useDispatch();
 	const { danhSachLoaiNguoiDung, thongTinNguoiDungCapNhat } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log('danhSachLoaiNguoiDung:', danhSachLoaiNguoiDung);
-	console.log('thongTinNguoiDungCapNhat: ', thongTinNguoiDungCapNhat);
 
 	const formik = useFormik({
 		enableReinitialize: true,
@@ -37,8 +35,6 @@ export default function EditUser(props) {
 		}),
 
 		onSubmit: values => {
-			console.log('values: ', values);
-
 			dispatch(capNhatThongTinNguoiDungAdminAction(values));
 		},
 	});

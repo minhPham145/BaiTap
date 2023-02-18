@@ -15,15 +15,13 @@ export default function Showtime(props) {
 			giaVe: 0,
 		},
 		onSubmit: async values => {
-			console.log('values: ', values);
 			try {
-				const { data, status } = await quanLyDatVeService.taoLichChieu(values);
+				const { status } = await quanLyDatVeService.taoLichChieu(values);
 				if (status === STATUS_CODE.SUCCESS) {
 					alert('Tạo lịch chiếu thành công! ');
 				}
-				console.log(data);
 			} catch (error) {
-				console.log(error);
+				alert(error);
 			}
 		},
 	});
@@ -43,9 +41,8 @@ export default function Showtime(props) {
 						heThongRapChieu: data.content,
 					});
 				}
-				console.log(data);
 			} catch (error) {
-				console.log(error);
+				alert(error);
 			}
 		};
 		getDanhSachHeThongRap();
@@ -60,9 +57,8 @@ export default function Showtime(props) {
 					cumRapChieu: data.content,
 				});
 			}
-			console.log(data);
 		} catch (error) {
-			console.log(error);
+			alert(error);
 		}
 	};
 

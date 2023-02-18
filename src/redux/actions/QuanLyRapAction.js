@@ -12,9 +12,8 @@ export const layDanhSachHeThongRapAction = () => {
 					heThongRapChieu: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -29,9 +28,8 @@ export const layThongTinLichChieuPhimAction = id => {
 					filmDetail: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };

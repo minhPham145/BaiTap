@@ -23,8 +23,6 @@ export default function AddNew() {
 			maNhom: GROUPID,
 		},
 		onSubmit: values => {
-			console.log('value: ', values);
-
 			//tạo đối tượng form data
 			let formData = new FormData();
 			for (let key in values) {

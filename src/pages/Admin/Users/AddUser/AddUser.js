@@ -10,7 +10,6 @@ import { history } from '../../../../util/history';
 export default function AddUser() {
 	const dispatch = useDispatch();
 	const { danhSachLoaiNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log('danhSachLoaiNguoiDung: ', danhSachLoaiNguoiDung);
 
 	const formik = useFormik({
 		initialValues: {
@@ -33,8 +32,6 @@ export default function AddUser() {
 		}),
 
 		onSubmit: values => {
-			console.log('values: ', values);
-
 			dispatch(themNguoiDungAction(values));
 		},
 	});

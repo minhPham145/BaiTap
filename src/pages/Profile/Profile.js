@@ -12,13 +12,9 @@ import * as Yup from 'yup';
 
 moment.locale('vi');
 
-const onChange = key => {
-	console.log(key);
-};
 export default function Profile(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log('thongTinNguoiDung: ', thongTinNguoiDung);
 
 	useEffect(() => {
 		dispatch(layThongTinNguoiDungAction());
@@ -47,7 +43,7 @@ export default function Profile(props) {
 				<div className='absolute top-0 bottom-0 left-0 right-0 bg-white/20'></div>
 				<div className='flex items-center justify-center'>
 					<div className='w-4/5 bg-white/80 backdrop-blur-md rounded-lg px-12 pb-12 my-10'>
-						<Tabs defaultActiveKey='1' items={items} onChange={onChange} />
+						<Tabs defaultActiveKey='1' items={items} />
 					</div>
 				</div>
 			</div>
@@ -58,7 +54,6 @@ export default function Profile(props) {
 function ThongTinCaNhan(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung, danhSachLoaiNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log(thongTinNguoiDung, danhSachLoaiNguoiDung);
 
 	const loaiNguoiDung = _.find(danhSachLoaiNguoiDung, o => o.tenLoai === thongTinNguoiDung.loaiNguoiDung);
 
@@ -84,8 +79,6 @@ function ThongTinCaNhan(props) {
 		}),
 
 		onSubmit: async values => {
-			console.log('values: ', values);
-
 			dispatch(capNhatThongTinNguoiDungAction(values));
 		},
 	});
@@ -144,7 +137,6 @@ function ThongTinCaNhan(props) {
 function LichSuDatVe(props) {
 	const dispatch = useDispatch();
 	const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-	console.log('thongTinNguoiDung: ', thongTinNguoiDung);
 
 	useEffect(() => {
 		dispatch(layThongTinNguoiDungAction());

@@ -76,9 +76,8 @@ export default function Contact() {
 					return request.data.results;
 				});
 				setArrFilmMDB(arrResutl.flat(1));
-				console.log(result);
 			} catch (err) {
-				console.log(err);
+				alert(err);
 			}
 		};
 

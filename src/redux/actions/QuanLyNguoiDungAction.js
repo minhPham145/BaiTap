@@ -14,9 +14,7 @@ export const dangNhapAction = thongTinDangNhap => {
 				});
 				history.goBack();
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
 			alert(err.response.data.content);
 		}
 	};
@@ -25,14 +23,12 @@ export const dangNhapAction = thongTinDangNhap => {
 export const dangKyAction = thongTinDangKy => {
 	return async dispatch => {
 		try {
-			const { data, status } = await quanLyNguoiDungService.dangKy(thongTinDangKy);
+			const { status } = await quanLyNguoiDungService.dangKy(thongTinDangKy);
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Đăng ký thành công!');
 				history.push('/home');
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
 			alert(err.response.data.content);
 		}
 	};
@@ -48,9 +44,8 @@ export const layThongTinNguoiDungAction = () => {
 					thongTinNguoiDung: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -65,9 +60,8 @@ export const layDanhSachLoaiNguoiDungAction = () => {
 					danhSachLoaiNguoiDung: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -75,14 +69,12 @@ export const layDanhSachLoaiNguoiDungAction = () => {
 export const capNhatThongTinNguoiDungAction = thongTinCapNhat => {
 	return async dispatch => {
 		try {
-			const { data, status } = await quanLyNguoiDungService.capNhatThongTinNguoiDung(thongTinCapNhat);
+			const { status } = await quanLyNguoiDungService.capNhatThongTinNguoiDung(thongTinCapNhat);
 			if (status === STATUS_CODE.SUCCESS) {
 				dispatch(layThongTinNguoiDungAction());
 				alert('Cập nhật thông tin thành công!');
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
 			alert(err.response.data.content);
 		}
 	};
@@ -98,9 +90,8 @@ export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
 					danhSachNguoiDung: data.content,
 				});
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
+			alert(err);
 		}
 	};
 };
@@ -108,14 +99,12 @@ export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
 export const themNguoiDungAction = thongTinNguoiDung => {
 	return async dispatch => {
 		try {
-			const { data, status } = await quanLyNguoiDungService.themNguoiDung(thongTinNguoiDung);
+			const { status } = await quanLyNguoiDungService.themNguoiDung(thongTinNguoiDung);
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Thêm người dùng thành công!');
 				history.push('/admin/users');
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
 			alert(err.response.data.content);
 		}
 	};
@@ -131,14 +120,12 @@ export const layThongTinNguoiDungCapNhatAction = thongTinNguoiDungCapNhat => {
 export const capNhatThongTinNguoiDungAdminAction = thongTinNguoiDungCapNhat => {
 	return async dispatch => {
 		try {
-			const { data, status } = await quanLyNguoiDungService.capNhatThongTinNguoiDungAdmin(thongTinNguoiDungCapNhat);
+			const { status } = await quanLyNguoiDungService.capNhatThongTinNguoiDungAdmin(thongTinNguoiDungCapNhat);
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Cập nhật người dùng thành công!');
 				history.push('/admin/users');
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
 			alert(err.response.data.content);
 		}
 	};
@@ -147,14 +134,12 @@ export const capNhatThongTinNguoiDungAdminAction = thongTinNguoiDungCapNhat => {
 export const xoaNguoiDungAction = taiKhoan => {
 	return async dispatch => {
 		try {
-			const { data, status } = await quanLyNguoiDungService.xoaNguoiDung(taiKhoan);
+			const { status } = await quanLyNguoiDungService.xoaNguoiDung(taiKhoan);
 			if (status === STATUS_CODE.SUCCESS) {
 				alert('Xóa người dùng thành công!');
 				dispatch(layDanhSachNguoiDungAction());
 			}
-			console.log(data);
 		} catch (err) {
-			console.log(err);
 			alert(err.response.data.content);
 		}
 	};
