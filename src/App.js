@@ -51,6 +51,7 @@ export default function App() {
 				<AdminTemplates exact path='/admin/users' Component={Users} />
 				<AdminTemplates exact path='/admin/users/adduser' Component={AddUser} />
 				<AdminTemplates exact path='/admin/users/edituser/:id' Component={EditUser} />
+				
 
 				<HomeTemplate exact path='/' Component={Home} />
 			</Switch>

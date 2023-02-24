@@ -85,8 +85,8 @@ export default function Header() {
 								</NavLink>
 							</li>
 							<li className='flex'>
-								<NavLink to='/news' className='md:flex items-center md:px-4 font-semibold' activeClassName='text-[#1677FF]'>
-									News
+								<NavLink to='/admin' className='md:flex items-center md:px-4 font-semibold' activeClassName='text-[#1677FF]'>
+									Admin
 								</NavLink>
 							</li>
 						</ul>
