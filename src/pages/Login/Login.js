@@ -63,7 +63,7 @@ export default function Login() {
 					</form>
 					<div className='mt-5 text-sm font-display font-semibold text-center'>
 						Chưa có tài khoản?{' '}
-						<NavLink to='/signup' className='cursor-pointer text-indigo-500 hover:text-indigo-800'>
+						<NavLink to='/register' className='cursor-pointer text-indigo-500 hover:text-indigo-800'>
 							Đăng ký
 						</NavLink>
 					</div>
